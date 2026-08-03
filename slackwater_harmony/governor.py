@@ -56,6 +56,11 @@ class FrictionAlarm:
         """How much Φ exceeded the deadband."""
         return max(0.0, self.phi - self.deadband)
 
+    @property
+    def is_active(self) -> bool:
+        """True if this alarm represents actual friction (severity > NONE)."""
+        return self.severity != AlarmSeverity.NONE
+
     def __repr__(self) -> str:
         return (
             f"FrictionAlarm(agent={self.agent_id}, Φ={self.phi:.3f}, "
@@ -338,9 +343,12 @@ class HarmonyGovernor:
 
     @property
     def is_harmonized(self) -> bool:
-        """True when ALL agents are within their deadbands on average."""
+        """True when ALL agents are within their deadbands (latest Φ)."""
         for profile in self.profiles.values():
-            if profile.average_phi > profile.current_deadband:
+            if not profile.phi_history:
+                continue
+            latest_phi = profile.phi_history[-1]
+            if latest_phi > profile.current_deadband:
                 return False
         return True
 
