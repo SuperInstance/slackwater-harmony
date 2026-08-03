@@ -20,6 +20,16 @@ from slackwater_harmony.governor import HarmonyGovernor, FrictionAlarm
 from slackwater_harmony.sandbox import HypothesisSandbox, SandboxResult
 from slackwater_harmony.executive import ExecutiveAgent, Improvisation
 from slackwater_harmony.groove_detector import GrooveDetector, GrooveState
+from slackwater_harmony.flow_state import (
+    FlowStateDetector,
+    FlowStateProtector,
+    FlowStateJournal,
+    FlowPhase,
+    FlowReading,
+    FlowSession,
+    TempoMap,
+    ProtectiveAdjustment,
+)
 
 __all__ = [
     "HarmonyGovernor",
@@ -30,6 +40,14 @@ __all__ = [
     "Improvisation",
     "GrooveDetector",
     "GrooveState",
+    "FlowStateDetector",
+    "FlowStateProtector",
+    "FlowStateJournal",
+    "FlowPhase",
+    "FlowReading",
+    "FlowSession",
+    "TempoMap",
+    "ProtectiveAdjustment",
 ]
 
 __version__ = "0.1.0"
