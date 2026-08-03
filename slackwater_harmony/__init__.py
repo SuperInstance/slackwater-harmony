@@ -21,14 +21,14 @@ from slackwater_harmony.sandbox import HypothesisSandbox, SandboxResult
 from slackwater_harmony.executive import ExecutiveAgent, Improvisation
 from slackwater_harmony.groove_detector import GrooveDetector, GrooveState
 from slackwater_harmony.flow_state import (
-    FlowStateDetector,
-    FlowStateProtector,
-    FlowStateJournal,
     FlowPhase,
     FlowReading,
     FlowSession,
     TempoMap,
     ProtectiveAdjustment,
+    FlowStateDetector,
+    FlowStateProtector,
+    FlowStateJournal,
 )
 
 __all__ = [
@@ -40,14 +40,14 @@ __all__ = [
     "Improvisation",
     "GrooveDetector",
     "GrooveState",
-    "FlowStateDetector",
-    "FlowStateProtector",
-    "FlowStateJournal",
     "FlowPhase",
     "FlowReading",
     "FlowSession",
     "TempoMap",
     "ProtectiveAdjustment",
+    "FlowStateDetector",
+    "FlowStateProtector",
+    "FlowStateJournal",
 ]
 
 __version__ = "0.1.0"
