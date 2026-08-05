@@ -191,6 +191,15 @@ class HypothesisSandbox:
                     error_sum += 1.0
             return min(1.0, error_sum / max(1, len(keys)))
 
+        if isinstance(predicted, list) and isinstance(actual, list):
+            if not predicted and not actual:
+                return 0.0
+            if len(predicted) != len(actual):
+                return 1.0
+            diffs = [abs(p - a) for p, a in zip(predicted, actual)
+                     if isinstance(p, (int, float)) and isinstance(a, (int, float))]
+            return min(1.0, sum(diffs) / len(diffs)) if diffs else 0.0
+
         if isinstance(predicted, (int, float)) and isinstance(actual, (int, float)):
             return min(1.0, abs(predicted - actual))
 

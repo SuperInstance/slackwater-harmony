@@ -53,6 +53,7 @@ class Improvisation:
     reason: str = ""
     constraint_rewrites: dict[str, Any] = field(default_factory=dict)
     dialogue: Optional[str] = None
+    notes: Optional[str] = None
     novelty: bool = False
     confidence: float = 1.0
 

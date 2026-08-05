@@ -267,6 +267,13 @@ class TestHypothesisSandbox:
         error = sandbox.reconcile({"x": 0}, {"x": 1})
         assert error > 0.0
 
+    def test_reconcile_lists(self):
+        sandbox = HypothesisSandbox()
+        assert sandbox.reconcile([1.0, 2.0], [1.0, 2.0]) == 0.0
+        assert sandbox.reconcile([1.0, 2.0, 3.0], [1.0, 2.0, 4.0]) == pytest.approx(1.0 / 3.0)
+        assert sandbox.reconcile([1.0], [1.0, 2.0]) == 1.0  # length mismatch
+        assert sandbox.reconcile([], []) == 0.0
+
     def test_reconcile_scalar(self):
         sandbox = HypothesisSandbox()
         assert sandbox.reconcile(1.0, 1.0) == 0.0
